@@ -3,7 +3,7 @@ const router = new express.Router();
 
 const User=require('../models/user')
 
-router.post('/users', async (req, res)=> {
+router.post('/user/new', async (req, res)=> {
     const user = new User(req.body);
     
     try {
@@ -14,15 +14,23 @@ router.post('/users', async (req, res)=> {
     }
 })
 
-router.get('/users/me', async (req, res)=> {
-    try {
-        const _id=req.body.id;
-        console.log(_id)
-        const user = await User.findById(_id);
+// router.post('/user/login', async (req,res)=> {
+//     try {
+//         const user= await User.findOne({email: req.body.email})
+//         res.status(200).send()
+//     }
+//     catch (e) {
+//         res.status(400).send()
+//     }
+// })
 
-        res.status(200).send(user)
+router.get('/user/me', async (req, res)=> {
+    try {
+        const user= await User.findOne({email: req.body.email})
+        await user.populate('subs').execPopulate()
+        res.status(200).send(user.subs)
     } catch (e) {
-        res.status(400).send();
+        res.status(400).send()
     }
 })
 
