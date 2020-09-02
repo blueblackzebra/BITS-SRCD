@@ -8,13 +8,14 @@ const adminRouter=require('./routers/adminRouter')
 
 
 const app = express()
+app.use(cors())
+
 const port = process.env.PORT || 3100;
 
 app.use(express.json())
 app.use(userRouter)
 app.use(subRouter)
 app.use(adminRouter)
-app.use(cors())
 
 app.listen(port, ()=> {
     console.log("Server is up on "+port)
