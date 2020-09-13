@@ -26,7 +26,7 @@ Error return code: `HTTP status code 400`
 
 `<root>/user/me`
 
-Expected request type: `GET`
+Expected request type: `POST`
 
 Expected data type: `JSON / key-value pair`
 
@@ -48,7 +48,7 @@ Expected request type: `POST`
 
 Expected data type: `Encrypted form data`
 
-Expected data fields: `title :String , funding :String , prinInvest :String , email: String , projProp :Single pdf file , endoCert :Single pdf file , revComments :Single pdf file, [coInvest :Array of strings]`
+Expected data fields: `title :String , funding :String , prinInvest :String , email: String , projProp :Single pdf file , endoCert :Single pdf file , revCommentsOne :Single pdf file, revCommentsTwo: Single pdf file, [coInvest :Array of strings]`
 
 Success return code: `HTTP status code 200`
 
@@ -62,7 +62,7 @@ Expected request type: `GET`
 
 Expected data type: `Url parameters`
 
-Expected data fields: `id of Submission, num -> 0 for projProp, 1 for revComments, 2 for endoCert`
+Expected data fields: `id of Submission, num -> 0 for projProp, 1 for revCommentsOne, 2 for revCommentsTwo, 3 for endoCert`
 
 Success return code: `HTTP status code 200`
 
