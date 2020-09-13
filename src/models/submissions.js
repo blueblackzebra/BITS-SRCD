@@ -66,9 +66,9 @@ const subSchema= new mongoose.Schema({
     comment: {
         type: String
     },
-    lastDate: {
-        type: Date
-    }
+    // lastDate: {
+    //     type: Date
+    // }
 
 })
 

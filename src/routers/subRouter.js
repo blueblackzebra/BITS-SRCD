@@ -37,11 +37,11 @@ router.post('/sub/submit', upload, async (req, res) => {
 
         tempObj.owner=user.id
 
-        let today= new Date()
+        // let today= new Date()
 
-        let d=""+today.getFullYear()+"-"+today.getMonth()+"-"+today.getDate()
+        // let d=""+today.getFullYear()+"-"+today.getMonth()+"-"+today.getDate()
 
-        console.log(d)
+        // console.log(d)
 
         const subObj = {
             ...tempObj,
@@ -49,7 +49,7 @@ router.post('/sub/submit', upload, async (req, res) => {
             revCommentsOne: req.files['revCommentsOne'][0].buffer,
             revCommentsTwo: req.files['revCommentsTwo'][0].buffer,
             endoCert: req.files['endoCert'][0].buffer,
-            lastDate: d
+            // lastDate: d
         }
 
         const sub=new Sub(subObj);
