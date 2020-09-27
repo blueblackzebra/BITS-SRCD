@@ -43,14 +43,29 @@ router.post('/sub/submit', upload, async (req, res) => {
 
         // console.log(d)
 
-        const subObj = {
-            ...tempObj,
-            projProp: req.files['projProp'][0].buffer,
-            revCommentsOne: req.files['revCommentsOne'][0].buffer,
-            revCommentsTwo: req.files['revCommentsTwo'][0].buffer,
-            endoCert: req.files['endoCert'][0].buffer,
-            // lastDate: d
+        let subObj;
+
+        if (req.files['revCommentsOne']===undefined){
+            subObj = {
+                ...tempObj,
+                projProp: req.files['projProp'][0].buffer,
+                endoCert: req.files['endoCert'][0].buffer,
+                // lastDate: d
+            }
         }
+        
+        else {
+            subObj = {
+                ...tempObj,
+                projProp: req.files['projProp'][0].buffer,
+                revCommentsOne: req.files['revCommentsOne'][0].buffer,
+                revCommentsTwo: req.files['revCommentsTwo'][0].buffer,
+                endoCert: req.files['endoCert'][0].buffer,
+                // lastDate: d
+            }
+        }
+
+        
 
         const sub=new Sub(subObj);
         await sub.save()
