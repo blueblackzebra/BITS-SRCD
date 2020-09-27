@@ -29,12 +29,10 @@ const subSchema= new mongoose.Schema({
         type: String
     },
     revCommentsOne: {
-        type: Buffer,
-        required: true
+        type: Buffer
     },
     revCommentsTwo: {
-        type: Buffer,
-        required: true
+        type: Buffer
     },
     endoCert: {
         type: Buffer,
