@@ -69,3 +69,37 @@ Success return code: `HTTP status code 200`
 Success return data: `PDF data`
 
 Error return code: `HTTP status code 404/500`
+
+## Admin Endpoints
+
+### Mark a submission as approved
+
+`<root>/admin/mark/:id`
+
+Expected request type: `PATCH`
+
+Expected data type: `None`
+
+Expected data fields: `None`
+
+Success return code: `HTTP status code 200`
+
+Success return data: `None (fires off email)`
+
+Error return code: `HTTP status code 400`
+
+### Comment on a submission
+
+`<root>/admin/comment/:id`
+
+Expected request type: `PATCH`
+
+Expected data type: `JSON / key-value pair`
+
+Expected data fields: `comment: String`
+
+Success return code: `HTTP status code 200`
+
+Success return data: `None (fires off email)`
+
+Error return code: `HTTP status code 400`
