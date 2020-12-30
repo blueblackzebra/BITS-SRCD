@@ -50,7 +50,7 @@ router.post('/sub/submit', upload, async (req, res) => {
                 ...tempObj,
                 projProp: req.files['projProp'][0].buffer,
                 endoCert: req.files['endoCert'][0].buffer,
-                // lastDate: d
+                lastDate: today
             }
         }
         
