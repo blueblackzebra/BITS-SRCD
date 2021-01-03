@@ -72,9 +72,23 @@ Error return code: `HTTP status code 404/500`
 
 ## Admin Endpoints
 
-### Mark a submission as approved
+### Mark a submission as approved or unmark it
 
 `<root>/admin/mark/:id`
+
+Expected request type: `PATCH`
+
+Expected data type: `None`
+
+Expected data fields: `None`
+
+Success return code: `HTTP status code 200`
+
+Success return data: `None (fires off email)`
+
+Error return code: `HTTP status code 400`
+
+`<root>/admin/unmark/:id`
 
 Expected request type: `PATCH`
 

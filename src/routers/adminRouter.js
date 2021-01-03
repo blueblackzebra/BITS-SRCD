@@ -44,6 +44,30 @@ router.patch('/admin/mark/:id', async (req,res) => {
     }
 })
 
+router.patch('/admin/unmark/:id', async (req,res) => {
+    try {
+        const sub= await Sub.findByIdAndUpdate(req.params.id, {status: false}, {new: true})
+
+        const currUser= await User.findById(sub.owner)
+        const currEmail=currUser.email;
+
+        const msg= {
+            to: currEmail,
+            from: 'bitssrcd@gmail.com',
+            subject: 'Test1',
+            text: 'Submission un-approved'
+        }
+
+        console.log(currEmail)
+
+        sgMail.send(msg);
+
+        res.status(200).send()
+    } catch(e) {
+        res.status(400).send()
+    }
+})
+
 router.patch('/admin/comment/:id', async(req,res) => {
     try {
         const sub= await Sub.findByIdAndUpdate(req.params.id, {comment: req.body.comment}, {new: true})

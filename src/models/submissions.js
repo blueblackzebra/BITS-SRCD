@@ -49,10 +49,9 @@ const subSchema= new mongoose.Schema({
     coInvest: {
         type: [String]
     },
-    // count: {
-    //     type: Number,
-    //     required: true
-    // },
+    experiencedFaculty: {
+        type: Boolean
+    },
     owner: {
         type: mongoose.Schema.Types.ObjectId,
         ref: 'User' 
