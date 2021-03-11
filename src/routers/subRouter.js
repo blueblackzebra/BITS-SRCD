@@ -1,6 +1,9 @@
 const express = require("express")
 const router = new express.Router();
 const multer = require('multer')
+const sgMail=require('@sendgrid/mail')
+
+sgMail.setApiKey(process.env.SG_KEY)
 
 const Sub=require('../models/submissions')
 const User=require('../models/user')
@@ -69,6 +72,27 @@ router.post('/sub/submit', upload, async (req, res) => {
 
         const sub=new Sub(subObj);
         await sub.save()
+
+        const msg= {
+            to: 'srcdonline@pilani.bits-pilani.ac.in',
+            from: 'bitssrcd@gmail.com',
+            subject: 'New submission',
+            text: 'Submission received'
+        }
+
+        const msgalt= {
+            to: 'bitssrcd@gmail.com',
+            from: 'bitssrcd@gmail.com',
+            subject: 'New2 submission',
+            text: 'Submission received from'
+        }
+
+        // sgMail.send(msg);  // This line is uncommented on deployed
+        
+        p=sgMail.send(msgalt);
+        // console.log(p);
+        
+
 
         res.status(200).send({id: sub.id});
 
