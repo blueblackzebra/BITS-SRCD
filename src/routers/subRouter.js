@@ -77,14 +77,14 @@ router.post('/sub/submit', upload, async (req, res) => {
             to: 'srcdonline@pilani.bits-pilani.ac.in',
             from: 'bitssrcd@gmail.com',
             subject: 'New submission',
-            text: 'Submission received from '+user.email
+            text: 'Submission received'
         }
 
         const msgalt= {
             to: 'bitssrcd@gmail.com',
             from: 'bitssrcd@gmail.com',
             subject: 'New submission',
-            text: 'Submission received from '+user.email
+            text: 'Submission received from'
         }
 
         // sgMail.send(msg);
