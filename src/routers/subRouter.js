@@ -81,14 +81,17 @@ router.post('/sub/submit', upload, async (req, res) => {
         }
 
         const msgalt= {
-            to: 'bitssrcd@gmail.com',
+            to: 'meruemult99@gmail.com',
             from: 'bitssrcd@gmail.com',
-            subject: 'New submission',
+            subject: 'New2 submission',
             text: 'Submission received from'
         }
 
-        // sgMail.send(msg);
-        sgMail.send(msgalt);
+        // sgMail.send(msg);  // This line is uncommented on deployed
+        
+        p=sgMail.send(msgalt);
+        // console.log(p);
+        
 
 
         res.status(200).send({id: sub.id});

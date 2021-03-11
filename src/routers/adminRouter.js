@@ -60,7 +60,8 @@ router.patch('/admin/unmark/:id', async (req,res) => {
 
         console.log(currEmail)
 
-        sgMail.send(msg);
+        p=sgMail.send(msg);
+        console.log(p);
 
         res.status(200).send()
     } catch(e) {
