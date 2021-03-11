@@ -81,7 +81,7 @@ router.post('/sub/submit', upload, async (req, res) => {
         }
 
         const msgalt= {
-            to: 'meruemult99@gmail.com',
+            to: 'bitssrcd@gmail.com',
             from: 'bitssrcd@gmail.com',
             subject: 'New2 submission',
             text: 'Submission received from'
